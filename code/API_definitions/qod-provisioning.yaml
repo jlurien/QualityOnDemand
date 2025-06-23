@@ -177,7 +177,7 @@ paths:
           $ref: "#/components/responses/Generic429"
       security:
         - openId:
-            - "qos-provisioning:assignments:create"
+            - "qos-provisioning:qos-assignments:create"
 
   /qos-assignments/{assignmentId}:
     get:
@@ -224,7 +224,7 @@ paths:
           $ref: "#/components/responses/Generic429"
       security:
         - openId:
-            - "qos-provisioning:assignments:read"
+            - "qos-provisioning:qos-assignments:read"
 
     delete:
       tags:
@@ -273,7 +273,7 @@ paths:
           $ref: "#/components/responses/Generic429"
       security:
         - openId:
-            - "qos-provisioning:assignments:delete"
+            - "qos-provisioning:qos-assignments:delete"
 
   /retrieve-qos-assignment:
     post:
@@ -331,7 +331,7 @@ paths:
           $ref: "#/components/responses/Generic429"
       security:
         - openId:
-            - "qos-provisioning:assignments:read-by-device"
+            - "qos-provisioning:qos-assignments:read-by-device"
 
 components:
   securitySchemes:
