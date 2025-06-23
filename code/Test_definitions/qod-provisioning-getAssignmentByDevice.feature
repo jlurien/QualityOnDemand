@@ -142,7 +142,7 @@ Feature: CAMARA QoD Provisioning API, vwip - Operation revokeAssignment
 
     @qod_provisioning_revokeAssignment_403.1_missing_access_token_scope
     Scenario: Missing access token scope
-        Given the header "Authorization" is set to an access token that does not include scope qos-provisioning:assignments:delete
+        Given the header "Authorization" is set to an access token that does not include scope qos-provisioning:qos-assignments:delete
         When the request "revokeAssignment" is sent
         Then the response status code is 403
         And the response header "x-correlator" has same value as the request header "x-correlator"
