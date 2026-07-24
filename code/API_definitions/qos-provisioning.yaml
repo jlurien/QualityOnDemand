@@ -151,7 +151,7 @@ paths:
                 content:
                   application/cloudevents+json:
                     schema:
-                      $ref: "#/components/schemas/CloudEvent"
+                      $ref: "#/components/schemas/QosProvisioningEvent"
                     examples:
                       ASSIGNMENT_STATUS_CHANGED_EXAMPLE:
                         $ref: "#/components/examples/ASSIGNMENT_STATUS_CHANGED_EXAMPLE"
@@ -488,20 +488,20 @@ components:
       maxLength: 256
       pattern: "^[a-zA-Z0-9_.-]+$"
 
-    ApiEventType:
+    QosProvisioningEventType:
       description: The type identifier for QoS provisioning status-change events.
       type: string
       enum:
         - "org.camaraproject.qos-provisioning.v0.status-changed"
 
-    CloudEvent:
+    QosProvisioningEvent:
       description: Event compliant with the CloudEvents specification
       allOf:
         - $ref: '../common/CAMARA_event_common.yaml#/components/schemas/CloudEvent'
         - type: object
           properties:
             type:
-              $ref: '#/components/schemas/ApiEventType'
+              $ref: '#/components/schemas/QosProvisioningEventType'
       discriminator:
         propertyName: "type"
         mapping:
@@ -510,7 +510,7 @@ components:
     EventStatusChanged:
       description: Event to notify a QoS provisioning status change
       allOf:
-        - $ref: "#/components/schemas/CloudEvent"
+        - $ref: "#/components/schemas/QosProvisioningEvent"
         - type: object
           properties:
             data:
